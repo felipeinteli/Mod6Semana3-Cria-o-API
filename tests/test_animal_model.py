@@ -1,6 +1,5 @@
 import unittest
-from app.models.animal_model import Animal
-
+from app.models.animal import Animal
 class TestAnimalModel(unittest.TestCase):
     def setUp(self):
         self.animal = Animal("Simba", "Leão", 50)
@@ -10,7 +9,6 @@ class TestAnimalModel(unittest.TestCase):
         self.assertEqual(self.animal.species, "Leão")
         self.assertEqual(self.animal.happiness_level, 50)
 
-    # Adicione mais testes relacionados à alimentação e outros métodos
 
 if __name__ == '__main__':
     unittest.main()
