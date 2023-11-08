@@ -6,11 +6,18 @@ class Enclosure:
         self.animals = []
         self.well_maintained = well_maintained
 
+    def criar_recinto(self, name, species):
+        recinto = Enclosure(self, name, species)
+        return recinto
+
     def add_animal(self, animal):
         if animal.species != self.species:
             raise ValueError(f"Este recinto só aceita animais da espécie {self.species}.")
         
         self.animals.append(animal)
 
-    def maintain(self):
+    def good_maintain(self):
         self.well_maintained = True
+
+    def bad_maintain(self):
+        self.well_maintained = False
