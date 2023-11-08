@@ -14,3 +14,9 @@ class Animal:
     def feed(self, food_amount):
         self.happiness_level += food_amount
         self.happiness_level = min(self.happiness_level, 100)
+
+    def verifica_felicidade(self):
+        if self.happiness_level > 50:
+            return "O animal está feliz"
+        else:
+            return "O animal está triste"

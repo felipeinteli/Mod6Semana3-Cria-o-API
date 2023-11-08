@@ -1,6 +1,10 @@
 from flask import Flask
 from app.models.animal import Animal
 from app.models.enclosure import Enclosure
+from app.models.visitors import Visitors
+from app.models.player import Player
+from app.models.zoo import Zoo
+
 
 
 meu_web_app = Flask('meu_web_app')
@@ -36,6 +40,15 @@ def cuidar_mal_recinto():
 
     return lion_enclosure
 
+def get_an_animal_felicidade():
+    lion_enclosure = Enclosure(name="Savana Africana", species="Leão").get_an_animal_felicidade("Simba")
+
+    return lion_enclosure
+
+def ganhar_dinheiro():
+    ganhou = Zoo.receive_visitor_for_a_unique_enclousure("Savana Africana", "Simba", "Leão")
+
+    return ganhou
 
 
 if __name__ == "__main__":

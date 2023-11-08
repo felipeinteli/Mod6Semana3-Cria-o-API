@@ -1,3 +1,4 @@
+from animal import Animal
 class Enclosure:
     def __init__(self, name, species, well_maintained=True):
 
@@ -9,6 +10,10 @@ class Enclosure:
     def criar_recinto(self, name, species):
         recinto = Enclosure(self, name, species)
         return recinto
+    
+    def get_an_animal_felicidade(self, name):
+        felicidade = Animal.verifica_felicidade(self, name)
+        return felicidade
 
     def add_animal(self, animal):
         if animal.species != self.species:
