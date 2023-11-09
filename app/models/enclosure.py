@@ -1,4 +1,5 @@
-from animal import Animal
+# from animal import Animal
+
 class Enclosure:
     def __init__(self, name, species, well_maintained=True):
 
@@ -7,13 +8,13 @@ class Enclosure:
         self.animals = []
         self.well_maintained = well_maintained
 
-    def criar_recinto(self, name, species):
-        recinto = Enclosure(self, name, species)
-        return recinto
-    
-    def get_an_animal_felicidade(self, name):
-        felicidade = Animal.verifica_felicidade(self, name)
-        return felicidade
+    # def get_an_animal_felicidade(self, name):
+    #     # Você precisa encontrar o animal correto no recinto
+    #     animal = next((a for a in self.animals if a.name == name), None)
+    #     if animal:
+    #         felicidade = Animal.verifica_felicidade(self)
+    #         return felicidade
+    #     return "Animal não encontrado"
 
     def add_animal(self, animal):
         if animal.species != self.species:
