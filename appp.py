@@ -24,11 +24,6 @@ class Appp:
 
         return self.lion_enclosure
 
-    def add_animal_to_enclosure(self):
-        self.lion_enclosure.add_animal(Animal(name="Simba", species="Leão"))
-
-        return self.lion_enclosure
-
     def cuidar_bem_recinto(self):
         if self.lion_enclosure:
             self.lion_enclosure.good_maintain()
@@ -45,7 +40,7 @@ class Appp:
         return None
 
     def ganhar_dinheiro(self):
-        ganhou = Zoo.receive_visitor_for_a_unique_enclosure("Savana Africana", "Simba", "Leão")
+        ganhou = Zoo.receive_visitor_for_a_unique_enclosure("Savana Africana", "Simba", "leão", 100)
         return ganhou
 
 

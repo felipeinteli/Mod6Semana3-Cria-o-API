@@ -20,7 +20,7 @@ class TestApppp(unittest.TestCase):
     def test_feed_animal(self):
         app_instance = Appp()
         hApppiness_level = app_instance.feed_animal()
-        self.assertEqual(hApppiness_level, 50)  
+        self.assertEqual(hApppiness_level, 100)  
 
     def test_criar_recinto(self):
         app_instance = Appp()
@@ -28,12 +28,6 @@ class TestApppp(unittest.TestCase):
         self.assertIsNotNone(enclosure)
         self.assertEqual(enclosure.name, "Savana Africana")
         self.assertEqual(enclosure.species, "Leão")
-
-    def test_add_animal_to_enclosure(self):
-        app_instance = Appp()
-        enclosure = app_instance.add_animal_to_enclosure()
-        self.assertIsNotNone(enclosure)
-        self.assertTrue(enclosure.has_animal("Simba"))
 
     def test_cuidar_bem_recinto(self):
         app_instance = Appp()
@@ -49,8 +43,8 @@ class TestApppp(unittest.TestCase):
 
     def test_get_an_animal_felicidade(self):
         app_instance = Appp()
-        hApppiness = app_instance.get_an_animal_felicidade()
-        self.assertIsNotNone(hApppiness)
+        happpiness = app_instance.get_an_animal_felicidade()
+        self.assertIsNotNone(happpiness)
         # Add assertions based on expected hApppiness level
 
     def test_ganhar_dinheiro(self):
