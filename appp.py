@@ -4,7 +4,7 @@ from app.models.enclosure import Enclosure
 
 from app.models.zoo import Zoo
 
-class App:
+class Appp:
     def __init__(self):
         self.lion_enclosure = None  # Initialize enclosure
 

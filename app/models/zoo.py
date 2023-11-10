@@ -1,6 +1,6 @@
-from animal import Animal
-from enclosure  import Enclosure
-from visitors import Visitor
+from app.models.animal import Animal
+from app.models.enclosure  import Enclosure
+from app.models.visitors import Visitor
 # from player import Player
 class Zoo:
 

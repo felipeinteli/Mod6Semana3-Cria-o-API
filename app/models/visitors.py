@@ -1,4 +1,4 @@
-from player import Player
+from app.models.player import Player
 
 class Visitor:
     def __init__(self, name=None, money=1000000):
