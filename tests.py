@@ -6,9 +6,6 @@ import unittest
 # from app.models.player import Player
 # from app.models.zoo import Zoo
 from app import App
-
-
-
 class TestApp(unittest.TestCase):
 
     def test_create_animal(self):

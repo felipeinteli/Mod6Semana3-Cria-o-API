@@ -1,4 +1,4 @@
-from flask import Flask
+
 from app.models.animal import Animal
 from app.models.enclosure import Enclosure
 
