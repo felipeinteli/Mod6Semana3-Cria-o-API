@@ -1,38 +1,53 @@
 from app.models.animal import Animal
 from app.models.enclosure  import Enclosure
 from app.models.visitors import Visitor
+from app.models.player import Player
+from typing import List
+
 
 class Zoo:
 
-    def __init__(self, name):
+    def __init__(self, name: str, player: Player):
         self.name = name
-        self.list_visitors = {}
-        self.list_enclosures = {}
-        self.list_animals = {}
-
-    def insere_visitors(self, visitor):
-        self.list_visitors[visitor.name] = visitor
-        return self.list_visitors
+        self.player = player
+        self.enclosures: List[Enclosure] = []
+        self.visitors: List[Visitor] = []
     
-    def insere_enclosures(self, enclosure):
-        self.list_enclosures[enclosure.name] = enclosure
-        return self.list_enclosures 
+    def __str__(self):
+        return f"Zoo(Name: {self.name}, Enclosures: {self.enclosures}, Visitors: {self.visitors})"
 
-    def insere_animals(self, animal):
-        self.list_animals[animal.name] = animal
-        return self.list_animals
 
-    def receive_visitor_for_a_unique_enclosure(self, enclosure_name, animal_name, amount):
-        enclosure = self.list_enclosures.get(enclosure_name)
-        animal = self.list_animals.get(animal_name)
-        if enclosure and animal:
-            if enclosure.good_maintain() and animal.verifica_felicidade() == "O animal está feliz":
-                
-                Visitor.gastar_dinheiro(amount)  
-                return "O visitante teve uma experiência agradável."
-            else:
-                return "O visitante não teve uma experiência agradável."
-        return "Recinto ou animal não encontrado."
+    def add_enclosure(self, enclosure: Enclosure):
+        if not isinstance(enclosure, Enclosure):
+            raise TypeError("O objeto deve ser uma instância de Enclosure")
+        self.enclosures.append(enclosure)
+
+    def add_visitor(self, visitor: Visitor):
+        if not isinstance(visitor, Visitor):
+            raise TypeError("O objeto deve ser uma instância de Visitor")
+        self.visitors.append(visitor)
+
+    def receber_visitantes(self, preco_por_visitante: float):
+            # Supondo que 'total_visitantes' seja uma propriedade da classe Zoo
+            total_visitantes = len(self.visitors)
+            total_pagantes = total_visitantes
+
+            for enclosure in self.enclosures:
+                if not enclosure.is_well_maintained():
+                    total_pagantes -= 1  # Subtrai um pagante por cada recinto mal mantido
+                    continue
+
+                for animal in enclosure.animals:
+                    if not animal.verifica_felicidade():
+                        total_pagantes -= 1  # Subtrai um pagante por cada animal infeliz
+
+            # Garantindo que o total de pagantes não seja negativo
+            total_pagantes = max(total_pagantes, 0)
+
+            total_receita = total_pagantes * preco_por_visitante
+            self.player.win_money(total_receita)
+
+            return total_visitantes, total_pagantes, total_receita
 
 
             
