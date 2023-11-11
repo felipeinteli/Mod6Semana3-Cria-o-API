@@ -1,8 +1,9 @@
 class Animal:
-    def __init__(self, name=None, species=None, happiness_level=50):
+    def __init__(self, name=None, species=None, happiness_level=50, felicidade=True):
         self.name = name
         self.species = species
         self.happiness_level = happiness_level
+        self.felicidade = felicidade
 
     def feed(self, food_amount):
         self.happiness_level += food_amount
@@ -11,6 +12,7 @@ class Animal:
 
     def verifica_felicidade(self):
         if self.happiness_level > 50:
-            return "O animal está feliz"
+            self.felicidade = True
+            return self.felicidade
         else:
-            return "O animal está triste"
+            return self.felicidade

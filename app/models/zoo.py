@@ -1,7 +1,7 @@
 from app.models.animal import Animal
 from app.models.enclosure  import Enclosure
 from app.models.visitors import Visitor
-# from player import Player
+
 class Zoo:
 
     def __init__(self, name):
@@ -27,15 +27,12 @@ class Zoo:
         animal = self.list_animals.get(animal_name)
         if enclosure and animal:
             if enclosure.good_maintain() and animal.verifica_felicidade() == "O animal está feliz":
-                # Presumindo que Visitor.gastar_dinheiro é um método que faz algo com o valor amount
-                Visitor.gastar_dinheiro(amount)  # Isso parece estranho, pois Visitor é uma classe e não uma instância
+                
+                Visitor.gastar_dinheiro(amount)  
                 return "O visitante teve uma experiência agradável."
             else:
                 return "O visitante não teve uma experiência agradável."
         return "Recinto ou animal não encontrado."
 
-    # def visitante_entrou_zoologico(self, name):
-    #     visitor = Visitor(name=name)
-    #     self.receive_visitor_for_a_unique_enclousure(visitor)
-    #     return visitor
+
             

@@ -1,10 +1,5 @@
 import unittest
-# from Appp import  create_animal, feed_animal, criar_recinto, add_animal_to_enclosure, cuidar_bem_recinto, cuidar_mal_recinto, get_an_animal_felicidade, ganhar_dinheiro
-# from Appp.models.animal import Animal
-# from Appp.models.enclosure import Enclosure
-# from Appp.models.visitors import Visitors
-# from Appp.models.player import Player
-# from Appp.models.zoo import Zoo
+
 from appp import Appp
 class TestApppp(unittest.TestCase):
 
@@ -33,26 +28,26 @@ class TestApppp(unittest.TestCase):
         app_instance = Appp()
         enclosure = app_instance.cuidar_bem_recinto()
         self.assertIsNotNone(enclosure)
-        self.assertTrue(enclosure.is_well_maintained)
+        self.assertTrue(enclosure.well_maintained)
 
     def test_cuidar_mal_recinto(self):
         app_instance = Appp()
         enclosure = app_instance.cuidar_mal_recinto()
         self.assertIsNotNone(enclosure)
-        self.assertFalse(enclosure.is_well_maintained)
+        self.assertFalse(enclosure.well_maintained)
 
     def test_get_an_animal_felicidade(self):
         app_instance = Appp()
-        happpiness = app_instance.get_an_animal_felicidade()
-        self.assertIsNotNone(happpiness)
-        # Add assertions based on expected hApppiness level
+        felicidade = app_instance.get_an_animal_felicidade()
+        self.assertTrue(felicidade)
+       
 
     def test_ganhar_dinheiro(self):
         app_instance = Appp()
-        # Test the ganhar_dinheiro function
+       
         money_earned = app_instance.ganhar_dinheiro()
         self.assertIsNotNone(money_earned)
-        # Add assertions based on expected money earned
+    
 
 if __name__ == '__main__':
     unittest.main()
